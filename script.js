@@ -1,100 +1,178 @@
-const grid = document.getElementById("gameGrid");
-const searchBar = document.getElementById("searchBar");
-const categoriesDiv = document.getElementById("categories");
-const modal = document.getElementById("gameModal");
-const frame = document.getElementById("gameFrame");
-const closeBtn = document.getElementById("closeBtn");
+// =========================
+// 🌟 GLOBAL SETTINGS & INIT
+// =========================
+const themes = ["theme-neon","theme-blue","theme-red","theme-purple","theme-orange","theme-cyber"];
+const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+const savedTheme = localStorage.getItem("theme");
+if(savedTheme) document.body.className = savedTheme;
+let games = []; // This will load from games.json
 
-let games = [];
+// =========================
+// 🎨 THEME SWITCHER
+// =========================
+function setTheme(theme){
+    if(!themes.includes(theme)) return;
+    document.body.className = theme;
+    localStorage.setItem("theme", theme);
+}
 
-fetch("games.json")
-.then(res => res.json())
-.then(data => {
-    games = data;
-    displayGames(games);
-    createCategories();
-});
+// =========================
+// 🕵️ TAB CLOAK SYSTEM
+// =========================
+function setCloak(type){
+    const favIcons = {
+        google: "https://www.google.com/favicon.ico",
+        classroom: "https://ssl.gstatic.com/classroom/favicon.png",
+        drive: "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"
+    };
+    const titles = {
+        google: "Google",
+        classroom: "Google Classroom",
+        drive: "My Drive - Google Drive"
+    };
+    document.title = titles[type] || "Unblocked Games Hub";
+    setFavicon(favIcons[type]);
+}
 
-function displayGames(list) {
-    grid.innerHTML = "";
-    list.forEach(game => {
+function setFavicon(url){
+    let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = url;
+    document.head.appendChild(link);
+}
+
+// =========================
+// ⭐ FAVORITES SYSTEM
+// =========================
+function toggleFavorite(gameId){
+    const index = favorites.indexOf(gameId);
+    if(index>=0) favorites.splice(index,1);
+    else favorites.push(gameId);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    renderGames();
+}
+
+// =========================
+// 🎮 LOAD GAMES FROM JSON
+// =========================
+async function loadGames(){
+    try{
+        const response = await fetch('games.json');
+        games = await response.json();
+        renderGames();
+    }catch(e){
+        console.error("Failed to load games.json:", e);
+    }
+}
+
+// =========================
+// 🖼 RENDER GAME HUB
+// =========================
+function renderGames(){
+    const container = document.getElementById("game-container");
+    if(!container) return;
+
+    container.innerHTML = ""; // Clear previous
+
+    games.forEach(game=>{
         const card = document.createElement("div");
-        card.className = "game-card";
-        card.textContent = game.name;
-        card.onclick = () => openGame(game.iframe);
-        grid.appendChild(card);
-    });
-}
+        card.className = "card";
 
-function createCategories() {
-    const categories = ["All", ...new Set(games.map(g => g.category))];
+        // Game title
+        const title = document.createElement("h3");
+        title.textContent = game.name;
+        card.appendChild(title);
 
-    categories.forEach(cat => {
+        // Favorite button
+        const fav = document.createElement("span");
+        fav.innerHTML = "★";
+        fav.className = "favorite";
+        if(favorites.includes(game.id)) fav.classList.add("active");
+        fav.onclick = ()=>toggleFavorite(game.id);
+        card.appendChild(fav);
+
+        // Play button
         const btn = document.createElement("button");
-        btn.textContent = cat;
-        btn.onclick = () => {
-            if (cat === "All") displayGames(games);
-            else displayGames(games.filter(g => g.category === cat));
+        btn.textContent = "Play Game";
+        btn.onclick = ()=>{
+            window.location.href = game.url;
         };
-        categoriesDiv.appendChild(btn);
+        card.appendChild(btn);
+
+        container.appendChild(card);
     });
 }
 
-searchBar.addEventListener("keyup", () => {
-    const value = searchBar.value.toLowerCase();
-    const filtered = games.filter(g =>
-        g.name.toLowerCase().includes(value)
-    );
-    displayGames(filtered);
-});
+// =========================
+// 🛠 SETTINGS MENU
+// =========================
+function openSettings(){
+    const overlay = document.createElement("div");
+    overlay.id = "settings-overlay";
+    overlay.style = `
+        position:fixed;top:0;left:0;width:100%;height:100%;
+        background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;
+        z-index:9999;color:white;font-family:Poppins,sans-serif;
+    `;
 
-function openGame(url) {
-    frame.src = url;
-    modal.style.display = "block";
+    const container = document.createElement("div");
+    container.style="padding:2rem;background:#111;border-radius:20px;max-width:500px;width:90%;text-align:center;";
+    
+    const h2 = document.createElement("h2");
+    h2.textContent="Settings";
+    container.appendChild(h2);
+
+    // Theme selector
+    const themeLabel = document.createElement("p");
+    themeLabel.textContent="Select Theme:";
+    container.appendChild(themeLabel);
+    themes.forEach(t=>{
+        const btn = document.createElement("button");
+        btn.textContent=t.replace("theme-","");
+        btn.onclick=()=>setTheme(t);
+        container.appendChild(btn);
+    });
+
+    // Tab cloak selector
+    const cloakLabel = document.createElement("p");
+    cloakLabel.textContent="Tab Cloak:";
+    container.appendChild(cloakLabel);
+    ["google","classroom","drive"].forEach(c=>{
+        const btn = document.createElement("button");
+        btn.textContent=c.charAt(0).toUpperCase()+c.slice(1);
+        btn.onclick=()=>setCloak(c);
+        container.appendChild(btn);
+    });
+
+    const closeBtn = document.createElement("button");
+    closeBtn.textContent="Close Settings";
+    closeBtn.style="margin-top:1rem;background:red;color:white;";
+    closeBtn.onclick=()=>overlay.remove();
+    container.appendChild(closeBtn);
+
+    overlay.appendChild(container);
+    document.body.appendChild(overlay);
 }
 
-closeBtn.onclick = () => {
-    frame.src = "";
-    modal.style.display = "none";
+// =========================
+// 🌀 AUTO-GENERATE 100 GAME SLOTS (PLACEHOLDER)
+// =========================
+function generateDummyGames(){
+    for(let i=1;i<=100;i++){
+        games.push({
+            id:"game"+i,
+            name:"Game "+i,
+            url:"game"+i+".html"
+        });
+    }
+    renderGames();
+}
+
+// =========================
+// 🚀 INIT
+// =========================
+window.onload = ()=>{
+    generateDummyGames();
 };
-
-{
-  "theme_system": {
-    "description": "Allows users to switch the website theme and remember the choice.",
-    "default_class": "theme-neon",
-    "script_instructions": [
-      "Add function setTheme(theme) to script.js",
-      "Inside setTheme: set document.body.className = theme and save theme to localStorage",
-      "Check localStorage for savedTheme on page load and apply it if exists"
-    ],
-    "example_buttons": [
-      {"label": "Neon", "action": "setTheme('theme-neon')"},
-      {"label": "Blue", "action": "setTheme('theme-blue')"},
-      {"label": "Red", "action": "setTheme('theme-red')"}
-    ]
-  },
-  "tab_cloak_system": {
-    "description": "Allows the page to mimic other websites in the tab title and favicon.",
-    "script_instructions": [
-      "Add function setCloak(type) to script.js",
-      "Inside setCloak, check type and set document.title accordingly",
-      "Call setFavicon(url) to update the page favicon dynamically",
-      "Add function setFavicon(url) that creates or updates <link rel='icon'> in <head>"
-    ],
-    "example_buttons": [
-      {"label": "Google Cloak", "action": "setCloak('google')"},
-      {"label": "Classroom Cloak", "action": "setCloak('classroom')"},
-      {"label": "Drive Cloak", "action": "setCloak('drive')"}
-    ]
-  },
-  "favorites_system": {
-    "description": "Allows users to favorite items and store them in localStorage.",
-    "script_instructions": [
-      "Initialize favorites array from localStorage or empty array",
-      "Add function toggleFavorite(name)",
-      "Inside toggleFavorite, check if name is already in favorites; add or remove accordingly",
-      "Save updated favorites array to localStorage"
-    ]
-  }
-}
-
