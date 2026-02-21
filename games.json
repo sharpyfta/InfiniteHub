@@ -1,602 +1,174 @@
 [
   {
-    "id": "game1",
-    "name": "Game 1",
-    "url": "games/game1.html",
+    "id": "bitlif1",
+    "name": "BitLife",
+    "url": "<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>EncycloLife - Life Simulator</title>
+    
+    <style>
+      /* Modern Reset & Background */
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1a1a1a; /* Darker, professional background */
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Game Container - Constrained to 62vh like your original, but centered */
+      .webgl-content {
+        width: 100%;
+        max-width: 62vh; 
+        height: 100%;
+        position: relative;
+        background: #000;
+        box-shadow: 0 0 50px rgba(0,0,0,0.5);
+      }
+
+      #gameContainer {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Sleek Header Bar */
+      #nav-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        z-index: 999;
+        background: rgba(40, 44, 52, 0.8);
+        backdrop-filter: blur(10px); /* Modern blur effect */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: opacity 0.3s ease;
+      }
+
+      .header-title {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding-left: 20px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .close-btn {
+        color: rgba(255,255,255,0.6);
+        font-size: 18px;
+        padding-right: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .close-btn:hover {
+        color: #ff4d4d;
+      }
+
+      /* Loading Overlays (Matching Unity defaults but cleaner) */
+      .logo {
+        display: block;
+        margin: 20px auto;
+        width: 130px;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/TemplateData/UnityProgress.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate(
+        "gameContainer", 
+        "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json", 
+        {onProgress: UnityProgress}
+      );
+    </script>
+  </head>
+
+  <body>
+    <div class="webgl-content">
+      <header id="nav-header">
+        <div class="header-title">EncycloLife</div>
+        <a class="close-btn" onclick="closeHeader()">✕</a>
+      </header>
+
+      <div id="gameContainer"></div>
+    </div>
+
+    <script>
+      function closeHeader() {
+        var header = document.getElementById('nav-header');
+        header.style.opacity = '0';
+        setTimeout(() => { header.style.display = 'none'; }, 300);
+      }
+    </script>
+  </body>
+</html>",
     "thumbnail": "images/game1.png"
   },
   {
     "id": "game2",
     "name": "Game 2",
-    "url": "games/game2.html",
+    "url": "PUT-GAME2-HTML-HERE.html",
     "thumbnail": "images/game2.png"
   },
   {
     "id": "game3",
     "name": "Game 3",
-    "url": "games/game3.html",
+    "url": "PUT-GAME3-HTML-HERE.html",
     "thumbnail": "images/game3.png"
   },
   {
     "id": "game4",
     "name": "Game 4",
-    "url": "games/game4.html",
+    "url": "PUT-GAME4-HTML-HERE.html",
     "thumbnail": "images/game4.png"
   },
   {
     "id": "game5",
     "name": "Game 5",
-    "url": "games/game5.html",
+    "url": "PUT-GAME5-HTML-HERE.html",
     "thumbnail": "images/game5.png"
   },
   {
     "id": "game6",
     "name": "Game 6",
-    "url": "games/game6.html",
+    "url": "PUT-GAME6-HTML-HERE.html",
     "thumbnail": "images/game6.png"
   },
   {
     "id": "game7",
     "name": "Game 7",
-    "url": "games/game7.html",
+    "url": "PUT-GAME7-HTML-HERE.html",
     "thumbnail": "images/game7.png"
   },
   {
     "id": "game8",
     "name": "Game 8",
-    "url": "games/game8.html",
+    "url": "PUT-GAME8-HTML-HERE.html",
     "thumbnail": "images/game8.png"
   },
   {
     "id": "game9",
     "name": "Game 9",
-    "url": "games/game9.html",
+    "url": "PUT-GAME9-HTML-HERE.html",
     "thumbnail": "images/game9.png"
   },
   {
     "id": "game10",
     "name": "Game 10",
-    "url": "games/game10.html",
+    "url": "PUT-GAME10-HTML-HERE.html",
     "thumbnail": "images/game10.png"
-  },
-  {
-    "id": "game11",
-    "name": "Game 11",
-    "url": "games/game11.html",
-    "thumbnail": "images/game11.png"
-  },
-  {
-    "id": "game12",
-    "name": "Game 12",
-    "url": "games/game12.html",
-    "thumbnail": "images/game12.png"
-  },
-  {
-    "id": "game13",
-    "name": "Game 13",
-    "url": "games/game13.html",
-    "thumbnail": "images/game13.png"
-  },
-  {
-    "id": "game14",
-    "name": "Game 14",
-    "url": "games/game14.html",
-    "thumbnail": "images/game14.png"
-  },
-  {
-    "id": "game15",
-    "name": "Game 15",
-    "url": "games/game15.html",
-    "thumbnail": "images/game15.png"
-  },
-  {
-    "id": "game16",
-    "name": "Game 16",
-    "url": "games/game16.html",
-    "thumbnail": "images/game16.png"
-  },
-  {
-    "id": "game17",
-    "name": "Game 17",
-    "url": "games/game17.html",
-    "thumbnail": "images/game17.png"
-  },
-  {
-    "id": "game18",
-    "name": "Game 18",
-    "url": "games/game18.html",
-    "thumbnail": "images/game18.png"
-  },
-  {
-    "id": "game19",
-    "name": "Game 19",
-    "url": "games/game19.html",
-    "thumbnail": "images/game19.png"
-  },
-  {
-    "id": "game20",
-    "name": "Game 20",
-    "url": "games/game20.html",
-    "thumbnail": "images/game20.png"
-  },
-  {
-    "id": "game21",
-    "name": "Game 21",
-    "url": "games/game21.html",
-    "thumbnail": "images/game21.png"
-  },
-  {
-    "id": "game22",
-    "name": "Game 22",
-    "url": "games/game22.html",
-    "thumbnail": "images/game22.png"
-  },
-  {
-    "id": "game23",
-    "name": "Game 23",
-    "url": "games/game23.html",
-    "thumbnail": "images/game23.png"
-  },
-  {
-    "id": "game24",
-    "name": "Game 24",
-    "url": "games/game24.html",
-    "thumbnail": "images/game24.png"
-  },
-  {
-    "id": "game25",
-    "name": "Game 25",
-    "url": "games/game25.html",
-    "thumbnail": "images/game25.png"
-  },
-  {
-    "id": "game26",
-    "name": "Game 26",
-    "url": "games/game26.html",
-    "thumbnail": "images/game26.png"
-  },
-  {
-    "id": "game27",
-    "name": "Game 27",
-    "url": "games/game27.html",
-    "thumbnail": "images/game27.png"
-  },
-  {
-    "id": "game28",
-    "name": "Game 28",
-    "url": "games/game28.html",
-    "thumbnail": "images/game28.png"
-  },
-  {
-    "id": "game29",
-    "name": "Game 29",
-    "url": "games/game29.html",
-    "thumbnail": "images/game29.png"
-  },
-  {
-    "id": "game30",
-    "name": "Game 30",
-    "url": "games/game30.html",
-    "thumbnail": "images/game30.png"
-  },
-  {
-    "id": "game31",
-    "name": "Game 31",
-    "url": "games/game31.html",
-    "thumbnail": "images/game31.png"
-  },
-  {
-    "id": "game32",
-    "name": "Game 32",
-    "url": "games/game32.html",
-    "thumbnail": "images/game32.png"
-  },
-  {
-    "id": "game33",
-    "name": "Game 33",
-    "url": "games/game33.html",
-    "thumbnail": "images/game33.png"
-  },
-  {
-    "id": "game34",
-    "name": "Game 34",
-    "url": "games/game34.html",
-    "thumbnail": "images/game34.png"
-  },
-  {
-    "id": "game35",
-    "name": "Game 35",
-    "url": "games/game35.html",
-    "thumbnail": "images/game35.png"
-  },
-  {
-    "id": "game36",
-    "name": "Game 36",
-    "url": "games/game36.html",
-    "thumbnail": "images/game36.png"
-  },
-  {
-    "id": "game37",
-    "name": "Game 37",
-    "url": "games/game37.html",
-    "thumbnail": "images/game37.png"
-  },
-  {
-    "id": "game38",
-    "name": "Game 38",
-    "url": "games/game38.html",
-    "thumbnail": "images/game38.png"
-  },
-  {
-    "id": "game39",
-    "name": "Game 39",
-    "url": "games/game39.html",
-    "thumbnail": "images/game39.png"
-  },
-  {
-    "id": "game40",
-    "name": "Game 40",
-    "url": "games/game40.html",
-    "thumbnail": "images/game40.png"
-  },
-  {
-    "id": "game41",
-    "name": "Game 41",
-    "url": "games/game41.html",
-    "thumbnail": "images/game41.png"
-  },
-  {
-    "id": "game42",
-    "name": "Game 42",
-    "url": "games/game42.html",
-    "thumbnail": "images/game42.png"
-  },
-  {
-    "id": "game43",
-    "name": "Game 43",
-    "url": "games/game43.html",
-    "thumbnail": "images/game43.png"
-  },
-  {
-    "id": "game44",
-    "name": "Game 44",
-    "url": "games/game44.html",
-    "thumbnail": "images/game44.png"
-  },
-  {
-    "id": "game45",
-    "name": "Game 45",
-    "url": "games/game45.html",
-    "thumbnail": "images/game45.png"
-  },
-  {
-    "id": "game46",
-    "name": "Game 46",
-    "url": "games/game46.html",
-    "thumbnail": "images/game46.png"
-  },
-  {
-    "id": "game47",
-    "name": "Game 47",
-    "url": "games/game47.html",
-    "thumbnail": "images/game47.png"
-  },
-  {
-    "id": "game48",
-    "name": "Game 48",
-    "url": "games/game48.html",
-    "thumbnail": "images/game48.png"
-  },
-  {
-    "id": "game49",
-    "name": "Game 49",
-    "url": "games/game49.html",
-    "thumbnail": "images/game49.png"
-  },
-  {
-    "id": "game50",
-    "name": "Game 50",
-    "url": "games/game50.html",
-    "thumbnail": "images/game50.png"
-  },
-  {
-    "id": "game51",
-    "name": "Game 51",
-    "url": "games/game51.html",
-    "thumbnail": "images/game51.png"
-  },
-  {
-    "id": "game52",
-    "name": "Game 52",
-    "url": "games/game52.html",
-    "thumbnail": "images/game52.png"
-  },
-  {
-    "id": "game53",
-    "name": "Game 53",
-    "url": "games/game53.html",
-    "thumbnail": "images/game53.png"
-  },
-  {
-    "id": "game54",
-    "name": "Game 54",
-    "url": "games/game54.html",
-    "thumbnail": "images/game54.png"
-  },
-  {
-    "id": "game55",
-    "name": "Game 55",
-    "url": "games/game55.html",
-    "thumbnail": "images/game55.png"
-  },
-  {
-    "id": "game56",
-    "name": "Game 56",
-    "url": "games/game56.html",
-    "thumbnail": "images/game56.png"
-  },
-  {
-    "id": "game57",
-    "name": "Game 57",
-    "url": "games/game57.html",
-    "thumbnail": "images/game57.png"
-  },
-  {
-    "id": "game58",
-    "name": "Game 58",
-    "url": "games/game58.html",
-    "thumbnail": "images/game58.png"
-  },
-  {
-    "id": "game59",
-    "name": "Game 59",
-    "url": "games/game59.html",
-    "thumbnail": "images/game59.png"
-  },
-  {
-    "id": "game60",
-    "name": "Game 60",
-    "url": "games/game60.html",
-    "thumbnail": "images/game60.png"
-  },
-  {
-    "id": "game61",
-    "name": "Game 61",
-    "url": "games/game61.html",
-    "thumbnail": "images/game61.png"
-  },
-  {
-    "id": "game62",
-    "name": "Game 62",
-    "url": "games/game62.html",
-    "thumbnail": "images/game62.png"
-  },
-  {
-    "id": "game63",
-    "name": "Game 63",
-    "url": "games/game63.html",
-    "thumbnail": "images/game63.png"
-  },
-  {
-    "id": "game64",
-    "name": "Game 64",
-    "url": "games/game64.html",
-    "thumbnail": "images/game64.png"
-  },
-  {
-    "id": "game65",
-    "name": "Game 65",
-    "url": "games/game65.html",
-    "thumbnail": "images/game65.png"
-  },
-  {
-    "id": "game66",
-    "name": "Game 66",
-    "url": "games/game66.html",
-    "thumbnail": "images/game66.png"
-  },
-  {
-    "id": "game67",
-    "name": "Game 67",
-    "url": "games/game67.html",
-    "thumbnail": "images/game67.png"
-  },
-  {
-    "id": "game68",
-    "name": "Game 68",
-    "url": "games/game68.html",
-    "thumbnail": "images/game68.png"
-  },
-  {
-    "id": "game69",
-    "name": "Game 69",
-    "url": "games/game69.html",
-    "thumbnail": "images/game69.png"
-  },
-  {
-    "id": "game70",
-    "name": "Game 70",
-    "url": "games/game70.html",
-    "thumbnail": "images/game70.png"
-  },
-  {
-    "id": "game71",
-    "name": "Game 71",
-    "url": "games/game71.html",
-    "thumbnail": "images/game71.png"
-  },
-  {
-    "id": "game72",
-    "name": "Game 72",
-    "url": "games/game72.html",
-    "thumbnail": "images/game72.png"
-  },
-  {
-    "id": "game73",
-    "name": "Game 73",
-    "url": "games/game73.html",
-    "thumbnail": "images/game73.png"
-  },
-  {
-    "id": "game74",
-    "name": "Game 74",
-    "url": "games/game74.html",
-    "thumbnail": "images/game74.png"
-  },
-  {
-    "id": "game75",
-    "name": "Game 75",
-    "url": "games/game75.html",
-    "thumbnail": "images/game75.png"
-  },
-  {
-    "id": "game76",
-    "name": "Game 76",
-    "url": "games/game76.html",
-    "thumbnail": "images/game76.png"
-  },
-  {
-    "id": "game77",
-    "name": "Game 77",
-    "url": "games/game77.html",
-    "thumbnail": "images/game77.png"
-  },
-  {
-    "id": "game78",
-    "name": "Game 78",
-    "url": "games/game78.html",
-    "thumbnail": "images/game78.png"
-  },
-  {
-    "id": "game79",
-    "name": "Game 79",
-    "url": "games/game79.html",
-    "thumbnail": "images/game79.png"
-  },
-  {
-    "id": "game80",
-    "name": "Game 80",
-    "url": "games/game80.html",
-    "thumbnail": "images/game80.png"
-  },
-  {
-    "id": "game81",
-    "name": "Game 81",
-    "url": "games/game81.html",
-    "thumbnail": "images/game81.png"
-  },
-  {
-    "id": "game82",
-    "name": "Game 82",
-    "url": "games/game82.html",
-    "thumbnail": "images/game82.png"
-  },
-  {
-    "id": "game83",
-    "name": "Game 83",
-    "url": "games/game83.html",
-    "thumbnail": "images/game83.png"
-  },
-  {
-    "id": "game84",
-    "name": "Game 84",
-    "url": "games/game84.html",
-    "thumbnail": "images/game84.png"
-  },
-  {
-    "id": "game85",
-    "name": "Game 85",
-    "url": "games/game85.html",
-    "thumbnail": "images/game85.png"
-  },
-  {
-    "id": "game86",
-    "name": "Game 86",
-    "url": "games/game86.html",
-    "thumbnail": "images/game86.png"
-  },
-  {
-    "id": "game87",
-    "name": "Game 87",
-    "url": "games/game87.html",
-    "thumbnail": "images/game87.png"
-  },
-  {
-    "id": "game88",
-    "name": "Game 88",
-    "url": "games/game88.html",
-    "thumbnail": "images/game88.png"
-  },
-  {
-    "id": "game89",
-    "name": "Game 89",
-    "url": "games/game89.html",
-    "thumbnail": "images/game89.png"
-  },
-  {
-    "id": "game90",
-    "name": "Game 90",
-    "url": "games/game90.html",
-    "thumbnail": "images/game90.png"
-  },
-  {
-    "id": "game91",
-    "name": "Game 91",
-    "url": "games/game91.html",
-    "thumbnail": "images/game91.png"
-  },
-  {
-    "id": "game92",
-    "name": "Game 92",
-    "url": "games/game92.html",
-    "thumbnail": "images/game92.png"
-  },
-  {
-    "id": "game93",
-    "name": "Game 93",
-    "url": "games/game93.html",
-    "thumbnail": "images/game93.png"
-  },
-  {
-    "id": "game94",
-    "name": "Game 94",
-    "url": "games/game94.html",
-    "thumbnail": "images/game94.png"
-  },
-  {
-    "id": "game95",
-    "name": "Game 95",
-    "url": "games/game95.html",
-    "thumbnail": "images/game95.png"
-  },
-  {
-    "id": "game96",
-    "name": "Game 96",
-    "url": "games/game96.html",
-    "thumbnail": "images/game96.png"
-  },
-  {
-    "id": "game97",
-    "name": "Game 97",
-    "url": "games/game97.html",
-    "thumbnail": "images/game97.png"
-  },
-  {
-    "id": "game98",
-    "name": "Game 98",
-    "url": "games/game98.html",
-    "thumbnail": "images/game98.png"
-  },
-  {
-    "id": "game99",
-    "name": "Game 99",
-    "url": "games/game99.html",
-    "thumbnail": "images/game99.png"
-  },
-  {
-    "id": "game100",
-    "name": "Game 100",
-    "url": "games/game100.html",
-    "thumbnail": "images/game100.png"
   }
 ]
