@@ -1,34 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Infinite Games</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinite Game Hub</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.ico">
+<style>
+  /* Extra inline for body bg fallback while themes load */
+  body { background-color: #111; }
+</style>
 </head>
-<body>
+<body class="theme-neon">
 
-<div class="layout">
+<!-- 🌟 Header -->
+<header style="width:100%;text-align:center;margin-bottom:2rem;">
+    <h1>Infinite Game Hub</h1>
+    <p style="color:#aaa;">Play, Favorite, and Switch Themes!</p>
+</header>
 
-    <aside class="sidebar">
-        <h2>∞ Infinite</h2>
-        <input type="text" id="searchBar" placeholder="Search...">
-        <div id="categories"></div>
-    </aside>
-
-    <main>
-        <h1>Games</h1>
-        <div id="gameGrid"></div>
-    </main>
-
+<!-- 🎨 Theme Buttons -->
+<div style="display:flex;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
+    <button onclick="setTheme('theme-neon')">Neon</button>
+    <button onclick="setTheme('theme-blue')">Blue</button>
+    <button onclick="setTheme('theme-red')">Red</button>
+    <button onclick="setTheme('theme-purple')">Purple</button>
+    <button onclick="setTheme('theme-orange')">Orange</button>
+    <button onclick="setTheme('theme-cyber')">Cyber</button>
 </div>
 
-<div id="gameModal">
-    <div class="modal-content">
-        <button id="closeBtn">✖</button>
-        <iframe id="gameFrame"></iframe>
-    </div>
+<!-- 🕵️ Tab Cloak Buttons -->
+<div style="display:flex;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
+    <button onclick="setCloak('google')">Google Cloak</button>
+    <button onclick="setCloak('classroom')">Classroom Cloak</button>
+    <button onclick="setCloak('drive')">Drive Cloak</button>
 </div>
 
+<!-- ⚙️ Settings Button -->
+<div style="text-align:center;margin-bottom:2rem;">
+    <button onclick="openSettings()">Open Settings</button>
+</div>
+
+<!-- 🌀 Game Hub Container -->
+<div id="game-container"></div>
+
+<!-- 🎮 Script -->
 <script src="script.js"></script>
+<script>
+    // Extra safety: load games.json if it exists
+    fetch('games.json')
+    .then(res => res.json())
+    .then(data => {
+        // Replace dummy games with actual JSON
+        if(data.length) {
+            games = data;
+            renderGames();
+        }
+    })
+    .catch(e => console.warn("games.json not found, using dummy games.", e));
+</script>
+
+<!-- 🌌 Footer -->
+<footer style="text-align:center;margin-top:3rem;color:#888;">
+    <p>&copy; 2026 Infinite Game Hub | Designed for unblocked proxies & web use</p>
+</footer>
+
 </body>
 </html>
