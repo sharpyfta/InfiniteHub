@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Snake",
+    "iframe": "games/snake.html"
+  },
+  {
+    "name": "Pong",
+    "iframe": "games/pong.html"
+  },
+  {
+    "name": "Tetris",
+    "iframe": "games/tetris.html"
+  }
+]
