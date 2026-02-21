@@ -2,24 +2,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Infinite Unblocked</title>
+<title>Infinite Games</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Infinite Hub</h1>
-    <input type="text" id="searchBar" placeholder="Search games...">
-</header>
+<div class="layout">
 
-<nav id="categories"></nav>
+    <aside class="sidebar">
+        <h2>∞ Infinite</h2>
+        <input type="text" id="searchBar" placeholder="Search...">
+        <div id="categories"></div>
+    </aside>
 
-<main id="gameGrid"></main>
+    <main>
+        <h1>Games</h1>
+        <div id="gameGrid"></div>
+    </main>
+
+</div>
 
 <div id="gameModal">
     <div class="modal-content">
         <button id="closeBtn">✖</button>
-        <button id="fullscreenBtn">⛶</button>
         <iframe id="gameFrame"></iframe>
     </div>
 </div>
