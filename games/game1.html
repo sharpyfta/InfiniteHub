@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>BitLife - Life Simulator</title>
+    
+    <style>
+      /* Modern Reset & Background */
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1a1a1a; /* Darker, professional background */
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Game Container - Constrained to 62vh like your original, but centered */
+      .webgl-content {
+        width: 100%;
+        max-width: 62vh; 
+        height: 100%;
+        position: relative;
+        background: #000;
+        box-shadow: 0 0 50px rgba(0,0,0,0.5);
+      }
+
+      #gameContainer {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Sleek Header Bar */
+      #nav-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        z-index: 999;
+        background: rgba(40, 44, 52, 0.8);
+        backdrop-filter: blur(10px); /* Modern blur effect */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: opacity 0.3s ease;
+      }
+
+      .header-title {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding-left: 20px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .close-btn {
+        color: rgba(255,255,255,0.6);
+        font-size: 18px;
+        padding-right: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .close-btn:hover {
+        color: #ff4d4d;
+      }
+
+      /* Loading Overlays (Matching Unity defaults but cleaner) */
+      .logo {
+        display: block;
+        margin: 20px auto;
+        width: 130px;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/TemplateData/UnityProgress.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate(
+        "gameContainer", 
+        "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json", 
+        {onProgress: UnityProgress}
+      );
+    </script>
+  </head>
+
+  <body>
+    <div class="webgl-content">
+      <header id="nav-header">
+        <div class="header-title">EncycloLife</div>
+        <a class="close-btn" onclick="closeHeader()">✕</a>
+      </header>
+
+      <div id="gameContainer"></div>
+    </div>
+
+    <script>
+      function closeHeader() {
+        var header = document.getElementById('nav-header');
+        header.style.opacity = '0';
+        setTimeout(() => { header.style.display = 'none'; }, 300);
+      }
+    </script>
+  </body>
+</html>
