@@ -1,62 +1,17 @@
 [
-  {
-    "name": "Snake",
-    "category": "Arcade",
-    "thumbnail": "assets/thumbnails/snake.png",
-    "iframe": "games/snake.html"
-  },
-  {
-    "name": "Tetris",
-    "category": "Puzzle",
-    "thumbnail": "assets/thumbnails/tetris.png",
-    "iframe": "games/tetris.html"
-  },
-  {
-    "name": "Pong",
-    "category": "Classic",
-    "thumbnail": "assets/thumbnails/pong.png",
-    "iframe": "games/pong.html"
-  },
-  {
-    "name": "2048",
-    "category": "Puzzle",
-    "thumbnail": "assets/thumbnails/2048.png",
-    "iframe": "games/2048.html"
-  },
-  {
-    "name": "Flappy Bird",
-    "category": "Arcade",
-    "thumbnail": "assets/thumbnails/flappybird.png",
-    "iframe": "games/flappybird.html"
-  },
-  {
-    "name": "Run 3",
-    "category": "Action",
-    "thumbnail": "assets/thumbnails/run3.png",
-    "iframe": "games/run3.html"
-  },
-  {
-    "name": "Slope",
-    "category": "Action",
-    "thumbnail": "assets/thumbnails/slope.png",
-    "iframe": "games/slope.html"
-  },
-  {
-    "name": "Minecraft Classic",
-    "category": "Adventure",
-    "thumbnail": "assets/thumbnails/minecraft.png",
-    "iframe": "games/minecraft.html"
-  },
-  {
-    "name": "Basketball Stars",
-    "category": "Sports",
-    "thumbnail": "assets/thumbnails/basketballstars.png",
-    "iframe": "games/basketballstars.html"
-  },
-  {
-    "name": "Subway Surfers",
-    "category": "Action",
-    "thumbnail": "assets/thumbnails/subway.png",
-    "iframe": "games/subway.html"
-  }
+  { "name": "Snake", "category": "Arcade", "thumbnail": "assets/thumbnails/snake.jpg", "iframe": "games/snake.html" },
+  { "name": "Tetris", "category": "Puzzle", "thumbnail": "assets/thumbnails/tetris.jpg", "iframe": "games/tetris.html" },
+  { "name": "Pong", "category": "Classic", "thumbnail": "assets/thumbnails/pong.jpg", "iframe": "games/pong.html" },
+  { "name": "2048", "category": "Puzzle", "thumbnail": "assets/thumbnails/2048.jpg", "iframe": "games/2048.html" },
+  { "name": "Run 3", "category": "Action", "thumbnail": "assets/thumbnails/run3.jpg", "iframe": "games/run3.html" },
+  { "name": "Slope", "category": "Action", "thumbnail": "assets/thumbnails/slope.jpg", "iframe": "games/slope.html" },
+  { "name": "Tunnel Rush", "category": "Action", "thumbnail": "assets/thumbnails/tunnelrush.jpg", "iframe": "games/tunnelrush.html" },
+  { "name": "Drift Boss", "category": "Racing", "thumbnail": "assets/thumbnails/driftboss.jpg", "iframe": "games/driftboss.html" },
+  { "name": "Basketball Stars", "category": "Sports", "thumbnail": "assets/thumbnails/basketballstars.jpg", "iframe": "games/basketballstars.html" },
+  { "name": "Moto X3M", "category": "Racing", "thumbnail": "assets/thumbnails/motox3m.jpg", "iframe": "games/motox3m.html" },
+  { "name": "FNAF", "category": "Horror", "thumbnail": "assets/thumbnails/fnaf.jpg", "iframe": "games/fnaf.html" },
+  { "name": "Minecraft Classic", "category": "Adventure", "thumbnail": "assets/thumbnails/minecraft.jpg", "iframe": "games/minecraft.html" },
+  { "name": "Subway Surfers", "category": "Action", "thumbnail": "assets/thumbnails/subway.jpg", "iframe": "games/subway.html" },
+  { "name": "Geometry Dash", "category": "Arcade", "thumbnail": "assets/thumbnails/geometrydash.jpg", "iframe": "games/geometrydash.html" },
+  { "name": "Paper.io", "category": "Multiplayer", "thumbnail": "assets/thumbnails/paperio.jpg", "iframe": "games/paperio.html" }
 ]
