@@ -1,15 +1,20 @@
 [
   {
     "name": "Snake",
+    "category": "Arcade",
+    "thumbnail": "assets/thumbnails/snake.png",
     "iframe": "games/snake.html"
   },
   {
     "name": "Pong",
+    "category": "Classic",
+    "thumbnail": "assets/thumbnails/pong.png",
     "iframe": "games/pong.html"
   },
   {
     "name": "Tetris",
+    "category": "Puzzle",
+    "thumbnail": "assets/thumbnails/tetris.png",
     "iframe": "games/tetris.html"
   }
-
 ]
