@@ -1,5 +1,102 @@
 body {
     margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+}
+
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background: white;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar input {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 15px;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 6px;
+    border: none;
+    background: #e5e7eb;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background: #d1d5db;
+}
+
+/* Main */
+main {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+#gameGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    text-align: center;
+}
+
+.game-card:hover {
+    background: #f9fafb;
+}
+
+/* Modal */
+#gameModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    width: 90%;
+    height: 90%;
+    margin: 2% auto;
+    background: white;
+    position: relative;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#closeBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+body {
+    margin: 0;
     font-family: 'Segoe UI', sans-serif;
     color: white;
     overflow-x: hidden;
@@ -29,3 +126,4 @@ body.theme-blue {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+
