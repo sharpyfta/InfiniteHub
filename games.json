@@ -1,174 +1,26 @@
 [
   {
-    "id": "bitlif1",
+    "id": "game1",
     "name": "BitLife",
-    "url": "<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>EncycloLife - Life Simulator</title>
-    
-    <style>
-      /* Modern Reset & Background */
-      body, html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #1a1a1a; /* Darker, professional background */
-        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-      }
-
-      /* Game Container - Constrained to 62vh like your original, but centered */
-      .webgl-content {
-        width: 100%;
-        max-width: 62vh; 
-        height: 100%;
-        position: relative;
-        background: #000;
-        box-shadow: 0 0 50px rgba(0,0,0,0.5);
-      }
-
-      #gameContainer {
-        width: 100%;
-        height: 100%;
-      }
-
-      /* Sleek Header Bar */
-      #nav-header {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 50px;
-        z-index: 999;
-        background: rgba(40, 44, 52, 0.8);
-        backdrop-filter: blur(10px); /* Modern blur effect */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        transition: opacity 0.3s ease;
-      }
-
-      .header-title {
-        color: #ffffff;
-        font-weight: 700;
-        font-size: 1.2rem;
-        padding-left: 20px;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-      }
-
-      .close-btn {
-        color: rgba(255,255,255,0.6);
-        font-size: 18px;
-        padding-right: 20px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-
-      .close-btn:hover {
-        color: #ff4d4d;
-      }
-
-      /* Loading Overlays (Matching Unity defaults but cleaner) */
-      .logo {
-        display: block;
-        margin: 20px auto;
-        width: 130px;
-      }
-    </style>
-
-    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/TemplateData/UnityProgress.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate(
-        "gameContainer", 
-        "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json", 
-        {onProgress: UnityProgress}
-      );
-    </script>
-  </head>
-
-  <body>
-    <div class="webgl-content">
-      <header id="nav-header">
-        <div class="header-title">EncycloLife</div>
-        <a class="close-btn" onclick="closeHeader()">✕</a>
-      </header>
-
-      <div id="gameContainer"></div>
-    </div>
-
-    <script>
-      function closeHeader() {
-        var header = document.getElementById('nav-header');
-        header.style.opacity = '0';
-        setTimeout(() => { header.style.display = 'none'; }, 300);
-      }
-    </script>
-  </body>
-</html>",
-    "thumbnail": "images/game1.png"
+    "url": "games/game1.html",
+    "thumbnail": "data:image/jpeg;base64,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"
   },
   {
     "id": "game2",
-    "name": "Game 2",
-    "url": "PUT-GAME2-HTML-HERE.html",
+    "name": "1v1.lol",
+    "url": "games/game2.html",
     "thumbnail": "images/game2.png"
   },
   {
     "id": "game3",
-    "name": "Game 3",
-    "url": "PUT-GAME3-HTML-HERE.html",
+    "name": "Gorilla Tag",
+    "url": "games/game3.html",
     "thumbnail": "images/game3.png"
   },
   {
     "id": "game4",
-    "name": "Game 4",
-    "url": "PUT-GAME4-HTML-HERE.html",
+    "name": "Eaglercraft 1.12",
+    "url": "games/game4.html",
     "thumbnail": "images/game4.png"
-  },
-  {
-    "id": "game5",
-    "name": "Game 5",
-    "url": "PUT-GAME5-HTML-HERE.html",
-    "thumbnail": "images/game5.png"
-  },
-  {
-    "id": "game6",
-    "name": "Game 6",
-    "url": "PUT-GAME6-HTML-HERE.html",
-    "thumbnail": "images/game6.png"
-  },
-  {
-    "id": "game7",
-    "name": "Game 7",
-    "url": "PUT-GAME7-HTML-HERE.html",
-    "thumbnail": "images/game7.png"
-  },
-  {
-    "id": "game8",
-    "name": "Game 8",
-    "url": "PUT-GAME8-HTML-HERE.html",
-    "thumbnail": "images/game8.png"
-  },
-  {
-    "id": "game9",
-    "name": "Game 9",
-    "url": "PUT-GAME9-HTML-HERE.html",
-    "thumbnail": "images/game9.png"
-  },
-  {
-    "id": "game10",
-    "name": "Game 10",
-    "url": "PUT-GAME10-HTML-HERE.html",
-    "thumbnail": "images/game10.png"
   }
 ]
